@@ -1,0 +1,106 @@
+// resets
+@mixin reset {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// flex alignments
+@mixin flex-centered-horizontally {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-centered-vertically {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-centered-totally {
+  @include flex-centered-horizontally;
+  flex-direction: column;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+// * end of flex alignments
+
+// inputs
+@mixin input-general {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  color: white;
+  border: none;
+  border-radius: 0.7rem;
+  box-sizing: border-box;
+  transition: $transition-time ease-out;
+}
+
+@mixin input-text-or-password($width) {
+  width: $width;
+  height: 8.4rem;
+  background: rgba(white, 0.4);
+  @include input-general;
+  &:focus {
+    outline: none;
+    background: rgba(white, 0.6);
+    box-shadow: 0 0 2px 3px rgba(royalblue, 1);
+  }
+  &::placeholder {
+    color: white;
+    font-family: $font-family;
+    transition: $transition-time ease-out;
+  }
+  &:focus::placeholder {
+    color: transparent;
+  }
+}
+
+@mixin input-submit($width) {
+  width: $width;
+  height: 7.2rem;
+  background: royalblue;
+  @include input-general;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    cursor: pointer;
+    background: rgba(royalblue, 0.7);
+    transform: translate(2px, 2px);
+  }
+}
+// * end of inputs
+
+// scrollbar
+@mixin scrollbar {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    // background: gainsboro;
+    background: white;
+    // background: rgba(#e8cead, 0.3);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    // background: black;
+    background: #b9cebc;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    // background: gray;
+    background: #e8cead;
+  }
+}
+
+@mixin around-shadow {
+  box-shadow: -11px 0px 8px -10px rgba(gray, 0.2),
+    0px 11px 8px -10px rgba(gray, 0.2), 11px 0px 8px -10px rgba(gray, 0.2);
+}
